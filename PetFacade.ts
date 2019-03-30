@@ -62,6 +62,9 @@ export class PetFacade implements IPetFacade{
             case PetActionKind.FEED: {
                 return this.PetCemetery[owner].feed((action as FeedAction).args.food);
             }
+            case PetActionKind.PAINT:{
+                return this.PetCemetery[owner].paint();
+            }
         }
     }
 }

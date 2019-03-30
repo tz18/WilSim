@@ -10,6 +10,7 @@ export interface IPet{
     pet(): string
     feed(f: Food): string
     admire(): string
+    paint(): string
 }
 
 export enum Food{
@@ -31,5 +32,6 @@ export class FeedAction implements PetAction{
 export enum PetActionKind{
     PET,
     FEED,
-    ADMIRE
+    ADMIRE,
+    PAINT
 }
