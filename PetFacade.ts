@@ -12,24 +12,24 @@ class Pet implements IPet{
     }
 
     public admire(): string{
-        if (this.painted==0)
-            return `You are unable to decipher ${name}'s blank expression.`
-        return `${name} looks lost in thought.`
+        if (this.painted===0)
+            return `You are unable to decipher ${this.name}'s blank expression.`
+        return `${this.name} looks lost in thought.`
     };
     public pet(): string{
-        return `${name}'s contemplative expression doesn't change.`
+        return `${this.name}'s contemplative expression doesn't change.`
     }
     public paint(): string{
         this.painted=100;
-        return `Using some extra blood, you give ${name}'s visage a touch-up.`
+        return `Using some extra blood, you give ${this.name}'s visage a touch-up.`
     }
     public feed(f: Food): string{
-        return `${name} doesn't seem to be very hungry.`
+        return `${this.name} doesn't seem to be very hungry.`
     }
 
 }
 
-class PetFacade implements IPetFacade{
+export class PetFacade implements IPetFacade{
     PetCemetery: {[owner: string] : Pet};
 
     constructor(){
