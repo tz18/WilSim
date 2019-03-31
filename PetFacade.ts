@@ -11,20 +11,30 @@ class Pet implements IPet{
         this.painted=0;
     }
 
-    public admire(): string{
+    public admire(): Pet {
+        let result = this;
         if (this.painted===0)
-            return `You are unable to decipher ${this.name}'s blank expression.`
-        return `${this.name} looks lost in thought.`
+            result["flavortext"] = `You are unable to decipher ${this.name}'s blank expression.`
+        else{
+            result["flavortext"] = `${this.name} looks lost in thought.`
+        }
+        return result
     };
-    public pet(): string{
-        return `${this.name}'s contemplative expression doesn't change.`
+    public pet(): Pet{
+        let result = this;
+        result["flavortext"] =`${this.name}'s contemplative expression doesn't change.`;
+        return result;
     }
-    public paint(): string{
+    public paint(): Pet{
         this.painted=100;
-        return `Using some extra blood, you give ${this.name}'s visage a touch-up.`
+        let result = this;
+        result["flavortext"]= `Using some extra blood, you give ${this.name}'s visage a touch-up.`;
+        return result;
     }
-    public feed(f: Food): string{
-        return `${this.name} doesn't seem to be very hungry.`
+    public feed(f: Food): Pet{
+        let result = this;
+        result["flavortext"] = `${this.name} doesn't seem to be very hungry.`;
+        return result;
     }
 
 }
@@ -51,7 +61,7 @@ export class PetFacade implements IPetFacade{
     getPet(owner: string, userID: string){
         return this.PetCemetery[owner];
     }
-    performAction(owner:string, userID: string, action: PetAction): string{
+    performAction(owner:string, userID: string, action: PetAction): Pet{
         switch(action.action){
             case PetActionKind.ADMIRE: {
                 return this.PetCemetery[owner].admire();

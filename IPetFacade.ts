@@ -3,14 +3,14 @@ export interface IPetFacade {
     createPet(owner: string, userID: string, name: string): IPet
     removePet(owner: string, userID: string): IPet
     getPet(owner: string, userID: string): IPet
-    performAction(owner:string, userID: string, action: PetAction): string
+    performAction(owner:string, userID: string, action: PetAction): IPet
 }
 
 export interface IPet{
-    pet(): string
-    feed(f: Food): string
-    admire(): string
-    paint(): string
+    pet(): IPet
+    feed(f: Food): IPet
+    admire(): IPet
+    paint(): IPet
 }
 
 export enum Food{
