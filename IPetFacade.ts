@@ -1,9 +1,9 @@
 
 export interface IPetFacade {
-    createPet(owner: string, name: string): IPet
-    removePet(owner: string): IPet
-    getPet(owner: string): IPet
-    performAction(owner:string, action: PetAction): string
+    createPet(owner: string, userID: string, name: string): IPet
+    removePet(owner: string, userID: string): IPet
+    getPet(owner: string, userID: string): IPet
+    performAction(owner:string, userID: string, action: PetAction): string
 }
 
 export interface IPet{

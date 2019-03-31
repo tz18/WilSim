@@ -37,21 +37,21 @@ export class PetFacade implements IPetFacade{
     }
 
 
-    public createPet(owner: string, name: string): Pet
+    public createPet(owner: string, userID: string, name: string = "Wilson"): Pet
     {
         this.PetCemetery[owner] = new Pet(name);
         return this.PetCemetery[owner];
     }
-    public removePet(owner: string): Pet
+    public removePet(owner: string, userID: string): Pet
     {
         let pet = this.PetCemetery[owner];
         delete this.PetCemetery[owner];
         return pet;
     }
-    getPet(owner: string){
+    getPet(owner: string, userID: string){
         return this.PetCemetery[owner];
     }
-    performAction(owner:string, action: PetAction): string{
+    performAction(owner:string, userID: string, action: PetAction): string{
         switch(action.action){
             case PetActionKind.ADMIRE: {
                 return this.PetCemetery[owner].admire();
